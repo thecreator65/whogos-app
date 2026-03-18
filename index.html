@@ -2,33 +2,114 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Whogos - On-Demand Services</title>
+<title>Whogos - We make life easy</title>
+
 <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+<script src="https://js.paystack.co/v1/inline.js"></script>
 
 <style>
-body { margin:0; font-family:'Roboto', sans-serif; background:#f5f5f5; }
-header { background:#2B5D9F; color:white; display:flex; justify-content:space-between; padding:1em 2em; }
-header h1 { margin:0; }
-header nav a { color:white; margin-left:20px; text-decoration:none; cursor:pointer; }
+body {
+  margin:0;
+  font-family:'Roboto', sans-serif;
+  background: linear-gradient(135deg,#eaf3ff,#f7f9fc);
+}
 
-.tab { display:none; padding:2em; }
+/* HEADER */
+header {
+  background:#1e4fa3;
+  color:white;
+  display:flex;
+  justify-content:space-between;
+  padding:1em 2em;
+}
+
+header nav a {
+  color:white;
+  margin-left:20px;
+  cursor:pointer;
+  text-decoration:none;
+}
+
+/* HERO */
+.hero {
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:2em;
+  background: linear-gradient(120deg,#4facfe,#ff7f50);
+  border-radius:15px;
+  color:white;
+  margin:2em;
+}
+
+.hero img {
+  width:420px;
+  border-radius:12px;
+}
+
+.hero button {
+  padding:12px 20px;
+  border:none;
+  background:white;
+  color:#ff7f50;
+  border-radius:8px;
+  cursor:pointer;
+}
+
+/* CATEGORY */
+.category-grid {
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(140px,1fr));
+  gap:1em;
+  padding:2em;
+}
+
+.category {
+  background:white;
+  padding:1em;
+  border-radius:10px;
+  text-align:center;
+  box-shadow:0 5px 15px rgba(0,0,0,0.1);
+}
+
+/* SERVICES */
+.service-grid {
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:1em;
+  padding:2em;
+}
+
+.service-card {
+  background:white;
+  padding:1em;
+  border-radius:10px;
+  text-align:center;
+}
+
+.service-card img {
+  width:100%;
+  border-radius:10px;
+}
+
+/* FORM */
+form {
+  background:white;
+  padding:2em;
+  border-radius:10px;
+  max-width:400px;
+  margin:2em;
+}
+
+input {
+  width:100%;
+  padding:10px;
+  margin-bottom:1em;
+}
+
+/* TABS */
+.tab { display:none; }
 .tab.active { display:block; }
-
-.hero { display:flex; align-items:center; justify-content:center; gap:2em; background:linear-gradient(120deg,#6CC1FF,#FF7F50); padding:2em; border-radius:12px; color:white;}
-.hero img { width:400px; border-radius:12px; }
-.hero button { padding:10px 20px; border:none; background:white; color:#FF7F50; border-radius:6px; cursor:pointer; }
-
-.category-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(120px,1fr)); gap:1em; margin-top:2em; }
-.category { background:white; padding:1em; text-align:center; border-radius:10px; cursor:pointer; }
-.category img { width:60px; height:60px; object-fit:cover; border-radius:10px; }
-
-.service-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:1em; }
-.service-card { background:white; padding:1em; border-radius:10px; text-align:center; }
-.service-card img { width:100%; border-radius:10px; }
-
-form { background:white; padding:2em; border-radius:10px; max-width:400px; }
-input { width:100%; margin-bottom:1em; padding:8px; }
-button { cursor:pointer; }
 
 </style>
 </head>
@@ -36,7 +117,7 @@ button { cursor:pointer; }
 <body>
 
 <header>
-<h1>Whogos</h1>
+<h2>Whogos</h2>
 <nav>
 <a onclick="showTab('home')">Home</a>
 <a onclick="showTab('services')">Services</a>
@@ -48,45 +129,50 @@ button { cursor:pointer; }
 <section id="home" class="tab active">
 
 <div class="hero">
-<img src="https://images.pexels.com/photos/3768916/pexels-photo-3768916.jpeg">
 <div>
-<h2>Everything you need, delivered to your doorstep</h2>
-<button onclick="showTab('services')">Book a Service</button>
-</div>
+<h1>We make life easy for you</h1>
+<p>Book trusted African services instantly — anytime, anywhere.</p>
+<button onclick="showTab('services')">Get Started</button>
 </div>
 
-<h3>Categories</h3>
+<img src="https://images.pexels.com/photos/7516363/pexels-photo-7516363.jpeg">
+</div>
 
 <div class="category-grid">
 
-<div class="category" onclick="showTab('services')">
-<img src="https://images.pexels.com/photos/3845810/pexels-photo-3845810.jpeg">
+<div class="category">
+<img src="https://images.pexels.com/photos/8376233/pexels-photo-8376233.jpeg" width="60">
 <p>Health</p>
 </div>
 
 <div class="category">
-<img src="https://images.pexels.com/photos/4239091/pexels-photo-4239091.jpeg">
+<img src="https://images.pexels.com/photos/6197119/pexels-photo-6197119.jpeg" width="60">
 <p>Cleaning</p>
 </div>
 
 <div class="category">
-<img src="https://images.pexels.com/photos/3997993/pexels-photo-3997993.jpeg">
+<img src="https://images.pexels.com/photos/6621462/pexels-photo-6621462.jpeg" width="60">
 <p>Spa</p>
 </div>
 
 <div class="category">
-<img src="https://images.pexels.com/photos/7551606/pexels-photo-7551606.jpeg">
+<img src="https://images.pexels.com/photos/8613316/pexels-photo-8613316.jpeg" width="60">
 <p>Babysitter</p>
 </div>
 
 <div class="category">
-<img src="https://images.pexels.com/photos/4254168/pexels-photo-4254168.jpeg">
+<img src="https://images.pexels.com/photos/4254168/pexels-photo-4254168.jpeg" width="60">
 <p>Chef</p>
 </div>
 
 <div class="category">
-<img src="https://images.pexels.com/photos/5691659/pexels-photo-5691659.jpeg">
+<img src="https://images.pexels.com/photos/5691659/pexels-photo-5691659.jpeg" width="60">
 <p>Handyman</p>
+</div>
+
+<div class="category">
+<img src="https://images.pexels.com/photos/1181686/pexels-photo-1181686.jpeg" width="60">
+<p>Companionship</p>
 </div>
 
 </div>
@@ -95,65 +181,8 @@ button { cursor:pointer; }
 
 <!-- SERVICES -->
 <section id="services" class="tab">
-<h2>Services</h2>
 
 <div class="service-grid">
 
-<div class="service-card" onclick="showTab('booking')">
-<img src="https://images.pexels.com/photos/3845810/pexels-photo-3845810.jpeg">
-<h3>Home Doctor</h3>
-<p>$50</p>
-</div>
-
-<div class="service-card" onclick="showTab('booking')">
-<img src="https://images.pexels.com/photos/4239091/pexels-photo-4239091.jpeg">
-<h3>Cleaning</h3>
-<p>$30</p>
-</div>
-
-<div class="service-card" onclick="showTab('booking')">
-<img src="https://images.pexels.com/photos/3997993/pexels-photo-3997993.jpeg">
-<h3>Spa</h3>
-<p>$40</p>
-</div>
-
-<div class="service-card" onclick="showTab('booking')">
-<img src="https://images.pexels.com/photos/7551606/pexels-photo-7551606.jpeg">
-<h3>Babysitter</h3>
-<p>$15/hr</p>
-</div>
-
-</div>
-</section>
-
-<!-- BOOKING -->
-<section id="booking" class="tab">
-<h2>Book Service</h2>
-
-<form>
-<input type="date">
-<input type="time">
-<input placeholder="Enter location">
-<button onclick="showTab('dashboard')" type="button">Confirm Booking</button>
-</form>
-
-</section>
-
-<!-- DASHBOARD -->
-<section id="dashboard" class="tab">
-<h2>Your Bookings</h2>
-<ul>
-<li>Cleaning - Tomorrow</li>
-<li>Spa - Friday</li>
-</ul>
-</section>
-
-<script>
-function showTab(id){
-document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
-document.getElementById(id).classList.add('active');
-}
-</script>
-
-</body>
-</html>
+<div class="service-card">
+<img src="https://images.pex
