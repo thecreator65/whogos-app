@@ -3,109 +3,155 @@
 <head>
 <meta charset="UTF-8">
 <title>Whogos - On-Demand Services</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 
 <style>
 body { margin:0; font-family:'Roboto', sans-serif; background:#f5f5f5; }
-header { background:#2B5D9F; color:white; display:flex; justify-content:space-between; align-items:center; padding:1em 2em; }
+header { background:#2B5D9F; color:white; display:flex; justify-content:space-between; padding:1em 2em; }
 header h1 { margin:0; }
-header nav a { color:white; margin-left:2em; text-decoration:none; }
+header nav a { color:white; margin-left:20px; text-decoration:none; cursor:pointer; }
 
 .tab { display:none; padding:2em; }
 .tab.active { display:block; }
 
-.hero { display:flex; flex-wrap:wrap; align-items:center; justify-content:center; padding:2em; background:linear-gradient(120deg,#6CC1FF,#FF7F50); color:white; border-radius:12px;}
-.hero img { width:300px; border-radius:12px; }
-.hero-text { margin-left:2em; max-width:400px; }
+.hero { display:flex; align-items:center; justify-content:center; gap:2em; background:linear-gradient(120deg,#6CC1FF,#FF7F50); padding:2em; border-radius:12px; color:white;}
+.hero img { width:400px; border-radius:12px; }
+.hero button { padding:10px 20px; border:none; background:white; color:#FF7F50; border-radius:6px; cursor:pointer; }
 
 .category-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(120px,1fr)); gap:1em; margin-top:2em; }
 .category { background:white; padding:1em; text-align:center; border-radius:10px; cursor:pointer; }
+.category img { width:60px; height:60px; object-fit:cover; border-radius:10px; }
 
 .service-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:1em; }
-.service-card { background:white; padding:1em; border-radius:10px; text-align:center; cursor:pointer; }
+.service-card { background:white; padding:1em; border-radius:10px; text-align:center; }
+.service-card img { width:100%; border-radius:10px; }
 
 form { background:white; padding:2em; border-radius:10px; max-width:400px; }
-form input { width:100%; margin-bottom:1em; padding:0.6em; }
+input { width:100%; margin-bottom:1em; padding:8px; }
+button { cursor:pointer; }
 
-button { padding:0.7em 1.5em; background:#FF7F50; color:white; border:none; border-radius:6px; cursor:pointer; }
 </style>
 </head>
 
 <body>
 
 <header>
-  <h1>Whogos</h1>
-  <nav>
-    <a href="#" onclick="showTab('home')">Home</a>
-    <a href="#" onclick="showTab('services')">Services</a>
-    <a href="#" onclick="showTab('dashboard')">Dashboard</a>
-  </nav>
+<h1>Whogos</h1>
+<nav>
+<a onclick="showTab('home')">Home</a>
+<a onclick="showTab('services')">Services</a>
+<a onclick="showTab('dashboard')">Dashboard</a>
+</nav>
 </header>
 
 <!-- HOME -->
 <section id="home" class="tab active">
-  <div class="hero">
-    <img src="https://images.unsplash.com/photo-1581091215361-df5d935c0aa0?fit=crop&w=500&h=300">
-    <div class="hero-text">
-      <h2>Everything you need, delivered to your doorstep</h2>
-      <button onclick="showTab('services')">Book a Service</button>
-    </div>
-  </div>
 
-  <h3>Categories</h3>
-  <div class="category-grid">
-    <div class="category" onclick="showTab('services')">Health</div>
-    <div class="category" onclick="showTab('services')">Cleaning</div>
-    <div class="category" onclick="showTab('services')">Spa</div>
-    <div class="category" onclick="showTab('services')">Babysitter</div>
-  </div>
+<div class="hero">
+<img src="https://images.pexels.com/photos/3768916/pexels-photo-3768916.jpeg">
+<div>
+<h2>Everything you need, delivered to your doorstep</h2>
+<button onclick="showTab('services')">Book a Service</button>
+</div>
+</div>
+
+<h3>Categories</h3>
+
+<div class="category-grid">
+
+<div class="category" onclick="showTab('services')">
+<img src="https://images.pexels.com/photos/3845810/pexels-photo-3845810.jpeg">
+<p>Health</p>
+</div>
+
+<div class="category">
+<img src="https://images.pexels.com/photos/4239091/pexels-photo-4239091.jpeg">
+<p>Cleaning</p>
+</div>
+
+<div class="category">
+<img src="https://images.pexels.com/photos/3997993/pexels-photo-3997993.jpeg">
+<p>Spa</p>
+</div>
+
+<div class="category">
+<img src="https://images.pexels.com/photos/7551606/pexels-photo-7551606.jpeg">
+<p>Babysitter</p>
+</div>
+
+<div class="category">
+<img src="https://images.pexels.com/photos/4254168/pexels-photo-4254168.jpeg">
+<p>Chef</p>
+</div>
+
+<div class="category">
+<img src="https://images.pexels.com/photos/5691659/pexels-photo-5691659.jpeg">
+<p>Handyman</p>
+</div>
+
+</div>
+
 </section>
 
 <!-- SERVICES -->
 <section id="services" class="tab">
-  <h2>Services</h2>
-  <div class="service-grid">
-    <div class="service-card" onclick="showTab('detail')">
-      <h3>Home Doctor</h3>
-      <p>$50+</p>
-    </div>
-    <div class="service-card" onclick="showTab('detail')">
-      <h3>Cleaning</h3>
-      <p>$30+</p>
-    </div>
-    <div class="service-card" onclick="showTab('detail')">
-      <h3>Spa</h3>
-      <p>$40+</p>
-    </div>
-  </div>
+<h2>Services</h2>
+
+<div class="service-grid">
+
+<div class="service-card" onclick="showTab('booking')">
+<img src="https://images.pexels.com/photos/3845810/pexels-photo-3845810.jpeg">
+<h3>Home Doctor</h3>
+<p>$50</p>
+</div>
+
+<div class="service-card" onclick="showTab('booking')">
+<img src="https://images.pexels.com/photos/4239091/pexels-photo-4239091.jpeg">
+<h3>Cleaning</h3>
+<p>$30</p>
+</div>
+
+<div class="service-card" onclick="showTab('booking')">
+<img src="https://images.pexels.com/photos/3997993/pexels-photo-3997993.jpeg">
+<h3>Spa</h3>
+<p>$40</p>
+</div>
+
+<div class="service-card" onclick="showTab('booking')">
+<img src="https://images.pexels.com/photos/7551606/pexels-photo-7551606.jpeg">
+<h3>Babysitter</h3>
+<p>$15/hr</p>
+</div>
+
+</div>
 </section>
 
 <!-- BOOKING -->
-<section id="detail" class="tab">
-  <h2>Book Service</h2>
-  <form>
-    <input type="date">
-    <input type="time">
-    <input type="text" placeholder="Your address">
-    <button type="button" onclick="showTab('dashboard')">Confirm</button>
-  </form>
+<section id="booking" class="tab">
+<h2>Book Service</h2>
+
+<form>
+<input type="date">
+<input type="time">
+<input placeholder="Enter location">
+<button onclick="showTab('dashboard')" type="button">Confirm Booking</button>
+</form>
+
 </section>
 
 <!-- DASHBOARD -->
 <section id="dashboard" class="tab">
-  <h2>Your Bookings</h2>
-  <ul>
-    <li>Cleaning - Tomorrow</li>
-    <li>Spa - Friday</li>
-  </ul>
+<h2>Your Bookings</h2>
+<ul>
+<li>Cleaning - Tomorrow</li>
+<li>Spa - Friday</li>
+</ul>
 </section>
 
 <script>
-function showTab(tab){
-  document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
-  document.getElementById(tab).classList.add('active');
+function showTab(id){
+document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
+document.getElementById(id).classList.add('active');
 }
 </script>
 
