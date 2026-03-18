@@ -2,31 +2,28 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Whogos - We make life easy</title>
-
-<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-<script src="https://js.paystack.co/v1/inline.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Whogos - We Make Life Easy</title>
 
 <style>
 body {
   margin:0;
-  font-family:'Roboto', sans-serif;
-  background: linear-gradient(135deg,#eaf3ff,#f7f9fc);
+  font-family: Arial;
+  background:#f5f7fb;
 }
 
-/* HEADER */
-header {
+/* NAV */
+.nav {
   background:#1e4fa3;
   color:white;
+  padding:1em 2em;
   display:flex;
   justify-content:space-between;
-  padding:1em 2em;
 }
 
-header nav a {
+.nav a {
   color:white;
   margin-left:20px;
-  cursor:pointer;
   text-decoration:none;
 }
 
@@ -35,154 +32,246 @@ header nav a {
   display:flex;
   justify-content:space-between;
   align-items:center;
-  padding:2em;
-  background: linear-gradient(120deg,#4facfe,#ff7f50);
-  border-radius:15px;
-  color:white;
+  padding:3em;
   margin:2em;
+  border-radius:15px;
+  background: linear-gradient(120deg,#4facfe,#ff7f50);
+  color:white;
 }
 
 .hero img {
-  width:420px;
+  width:300px;
   border-radius:12px;
 }
 
-.hero button {
-  padding:12px 20px;
-  border:none;
+/* CATEGORY */
+.categories {
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
+  gap:1em;
+  padding:2em;
+}
+
+.card {
   background:white;
-  color:#ff7f50;
-  border-radius:8px;
+  padding:1em;
+  text-align:center;
+  border-radius:10px;
+  box-shadow:0 5px 15px rgba(0,0,0,0.1);
   cursor:pointer;
 }
 
-/* CATEGORY */
-.category-grid {
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(140px,1fr));
-  gap:1em;
-  padding:2em;
+.card img {
+  width:60px;
 }
 
-.category {
-  background:white;
-  padding:1em;
-  border-radius:10px;
-  text-align:center;
-  box-shadow:0 5px 15px rgba(0,0,0,0.1);
-}
-
-/* SERVICES */
-.service-grid {
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-  gap:1em;
-  padding:2em;
-}
-
-.service-card {
-  background:white;
-  padding:1em;
-  border-radius:10px;
+/* FEATURES */
+.features {
+  padding:3em;
   text-align:center;
 }
 
-.service-card img {
-  width:100%;
+.feature-grid {
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+  gap:1em;
+  margin-top:2em;
+}
+
+.feature {
+  background:white;
+  padding:1.5em;
   border-radius:10px;
 }
 
-/* FORM */
-form {
-  background:white;
-  padding:2em;
-  border-radius:10px;
-  max-width:400px;
+/* CTA */
+.cta {
   margin:2em;
+  padding:3em;
+  text-align:center;
+  border-radius:15px;
+  background: linear-gradient(120deg,#4facfe,#ff7f50);
+  color:white;
 }
 
-input {
+/* BOOKING */
+.booking {
+  padding:2em;
+  display:none;
+}
+
+input, select {
   width:100%;
   padding:10px;
-  margin-bottom:1em;
+  margin:10px 0;
 }
 
-/* TABS */
-.tab { display:none; }
-.tab.active { display:block; }
-
+button {
+  padding:12px;
+  border:none;
+  background:#ff7f50;
+  color:white;
+  border-radius:8px;
+  cursor:pointer;
+}
 </style>
+
 </head>
 
 <body>
 
-<header>
-<h2>Whogos</h2>
-<nav>
-<a onclick="showTab('home')">Home</a>
-<a onclick="showTab('services')">Services</a>
-<a onclick="showTab('dashboard')">Dashboard</a>
-</nav>
-</header>
+<!-- NAV -->
+<div class="nav">
+  <h2>Whogos</h2>
+  <div>
+    <a href="#">Home</a>
+    <a href="#">Services</a>
+    <a href="#">Dashboard</a>
+  </div>
+</div>
 
-<!-- HOME -->
-<section id="home" class="tab active">
-
+<!-- HERO -->
 <div class="hero">
-<div>
-<h1>We make life easy for you</h1>
-<p>Book trusted African services instantly — anytime, anywhere.</p>
-<button onclick="showTab('services')">Get Started</button>
+  <div>
+    <h1>We make life easy for you</h1>
+    <p>Book trusted African services instantly — anytime, anywhere.</p>
+    <button onclick="showBooking()">Book a Service</button>
+  </div>
+
+  <img src="https://images.unsplash.com/photo-1521791136064-7986c2920216">
 </div>
 
-<img src="https://images.pexels.com/photos/7516363/pexels-photo-7516363.jpeg">
-</div>
+<!-- CATEGORIES -->
+<div class="categories">
 
-<div class="category-grid">
-
-<div class="category">
-<img src="https://images.pexels.com/photos/8376233/pexels-photo-8376233.jpeg" width="60">
+<div class="card" onclick="selectService('Health')">
+<img src="https://img.icons8.com/color/96/hospital.png">
 <p>Health</p>
 </div>
 
-<div class="category">
-<img src="https://images.pexels.com/photos/6197119/pexels-photo-6197119.jpeg" width="60">
+<div class="card" onclick="selectService('Cleaning')">
+<img src="https://img.icons8.com/color/96/clean.png">
 <p>Cleaning</p>
 </div>
 
-<div class="category">
-<img src="https://images.pexels.com/photos/6621462/pexels-photo-6621462.jpeg" width="60">
+<div class="card" onclick="selectService('Spa')">
+<img src="https://img.icons8.com/color/96/spa.png">
 <p>Spa</p>
 </div>
 
-<div class="category">
-<img src="https://images.pexels.com/photos/8613316/pexels-photo-8613316.jpeg" width="60">
+<div class="card" onclick="selectService('Babysitter')">
+<img src="https://img.icons8.com/color/96/baby.png">
 <p>Babysitter</p>
 </div>
 
-<div class="category">
-<img src="https://images.pexels.com/photos/4254168/pexels-photo-4254168.jpeg" width="60">
+<div class="card" onclick="selectService('Chef')">
+<img src="https://img.icons8.com/color/96/chef-hat.png">
 <p>Chef</p>
 </div>
 
-<div class="category">
-<img src="https://images.pexels.com/photos/5691659/pexels-photo-5691659.jpeg" width="60">
+<div class="card" onclick="selectService('Handyman')">
+<img src="https://img.icons8.com/color/96/tools.png">
 <p>Handyman</p>
 </div>
 
-<div class="category">
-<img src="https://images.pexels.com/photos/1181686/pexels-photo-1181686.jpeg" width="60">
-<p>Companionship</p>
+<div class="card" onclick="selectService('Companion')">
+<img src="https://img.icons8.com/color/96/user-group-man-man.png">
+<p>Companion</p>
 </div>
 
 </div>
 
-</section>
+<!-- FEATURES (FIXES EMPTY SPACE) -->
+<div class="features">
+<h2>Why Choose Whogos?</h2>
 
-<!-- SERVICES -->
-<section id="services" class="tab">
+<div class="feature-grid">
 
-<div class="service-grid">
+<div class="feature">
+<h3>⚡ Fast Booking</h3>
+<p>Get services instantly</p>
+</div>
 
-<div class="service-card">
-<img src="https://images.pex
+<div class="feature">
+<h3>🛡 Trusted Providers</h3>
+<p>Verified professionals</p>
+</div>
+
+<div class="feature">
+<h3>💳 Easy Payments</h3>
+<p>M-Pesa & card</p>
+</div>
+
+</div>
+</div>
+
+<!-- CTA -->
+<div class="cta">
+<h2>Ready to make life easier?</h2>
+<p>Book your first service now</p>
+<button onclick="showBooking()">Get Started</button>
+</div>
+
+<!-- BOOKING FORM -->
+<div class="booking" id="booking">
+
+<h2>Book Service</h2>
+
+<input type="text" id="service" placeholder="Service" readonly>
+<input type="date" id="date">
+<input type="time" id="time">
+<input type="text" id="location" placeholder="Location">
+
+<button onclick="bookService()">Confirm Booking</button>
+
+</div>
+
+<!-- FIREBASE -->
+<script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore-compat.js"></script>
+
+<script>
+const firebaseConfig = {
+  apiKey: "YOUR_KEY",
+  authDomain: "YOUR_PROJECT.firebaseapp.com",
+  projectId: "YOUR_PROJECT"
+};
+
+firebase.initializeApp(firebaseConfig);
+const db = firebase.firestore();
+
+let selectedService = "";
+
+/* SELECT SERVICE */
+function selectService(service){
+  selectedService = service;
+  document.getElementById("service").value = service;
+  showBooking();
+}
+
+/* SHOW BOOKING */
+function showBooking(){
+  document.getElementById("booking").style.display = "block";
+  window.scrollTo(0,document.body.scrollHeight);
+}
+
+/* SAVE BOOKING */
+function bookService(){
+
+let booking = {
+  service: selectedService,
+  date: document.getElementById("date").value,
+  time: document.getElementById("time").value,
+  location: document.getElementById("location").value,
+  createdAt: new Date()
+};
+
+db.collection("bookings").add(booking)
+.then(()=>{
+  alert("Booking successful!");
+});
+}
+</script>
+
+</body>
+</html>
